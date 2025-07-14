@@ -68,7 +68,7 @@ router.post("/logout", (req, res) => {
 const transpoter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-        user: "dongwon1103@gmail.com",
+        user: "mikarahmatramadhan14@gmail.com",
         pass: process.env.GOOGLE_APP_PASSWORD,
     },
 });
@@ -77,7 +77,7 @@ router.post("/send-email", async(req, res) => {
     const { to, subject, text } = req.body;
     try {
         await transpoter.sendMail({
-            from: "dongwon1103@gmail.com",
+            from: "mikarahmatramadhan14@gmail.com",
             to,
             subject,
             text,
