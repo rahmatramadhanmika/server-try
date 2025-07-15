@@ -15,7 +15,7 @@ const app = express();
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173", // Your frontend origin
+    origin: "https://sonervous.site/", // Your frontend origin
     credentials: true, // Allow cookies to be sent with cross-origin requests
   })
 );
