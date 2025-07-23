@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 import app from "./app.js";
 
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost:27017/express-test";
 mongoose
-  .connect("mongodb://localhost:27017/express-test")
+  .connect(mongoUrl)
   .then(() => {
     console.log("database connected");
     app.listen(3000, () => {
