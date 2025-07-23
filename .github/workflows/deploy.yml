@@ -61,8 +61,10 @@ jobs:
             AWS_SECRET_ACCESS_KEY= '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
             AWS_BUCKET_NAME= '${{ secrets.AWS_BUCKET_NAME }}'
             AWS_REGION= '${{ secrets.AWS_REGION }}'
-            MONGO_URL='${{ secrets.MONGO_URL }}'
             EOF
             
-            docker-compose down || true
-            docker-compose up -d --build
+            sudo apt install -y nodejs npm
+            sudo npm ci
+            sudo npm i -g pm2
+            pm2 delete all || true
+            pm2 start index.js --name express-test  
